@@ -3,7 +3,7 @@
     $(document).ready(function ()
     {
         //Prepend Page Nav
-        $("#site").prepend('<div class="show-on-scroll-wrapper" id="showOnScrollWrapper"><div id="mainNavWrapper" class="nav-wrapper show-on-scroll"><nav id="mainNavigation" data-content-field="navigation" ><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown-services"><button class="dropbtn">Services</button></a><div class="dropdown-services-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="/jmp-service-details">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="aHref_DAQ-Overview">DAQ Overview</a></div><div class="index"><a href="#anchor-casestudies">DAQ Case Studies</a></div><div class="index"><a href="#anchor-casestudies-simulation">LabVIEW Simulation</a></div></div></nav></div></div>');
+        $("#site").prepend('<div class="show-on-scroll-wrapper" id="showOnScrollWrapper"><div id="mainNavWrapper" class="nav-wrapper show-on-scroll"><nav id="mainNavigation" data-content-field="navigation" ><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown"><button class="dropbtn">Services</button></a><div class="dropdown-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="/jmp-service-details">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="aHref_DAQ-Overview">DAQ Overview</a></div><div class="dropdown"><button id="button_daq-case-studies" class="dropbtn">DAQ Case Studies</button><div class="dropdown-content"><a href="#anchor-casestudies-1">LabVIEW Ethernet Manufacturing DAQ System</a></div></div><div class="dropdown"><button id="button_simulations" class="dropbtn">LabVIEW simulations</button><div class="dropdown-content"><a href="#anchor-casestudies-simulation">Storage Tank Flow Level Controller</a></div></div></div></nav></div></div>');
 
         //Smooth scroll to top of page event
         $("#aHref_DAQ-Overview").click(function () {
@@ -12,16 +12,29 @@
             }, 400);
         });
 
+        //Smooth scroll to top of Access Case Studies
+        $("#button_daq-case-studies").click(function () {
+            $('html, body').animate({
+                scrollTop: parseInt($("#anchor-casestudies-1").offset().top)
+            }, 400);
+        });
+
+        //Smooth scroll to top of Access Case Studies
+        $("#button_simulations").click(function () {
+            $('html, body').animate({
+                scrollTop: parseInt($("#anchor-casestudies-simulation").offset().top)
+            }, 400);
+        });
     }); 
 
     //Hide or show Nav based on page position
     $(window).scroll(function() {
-    var scroll = $(window).scrollTop();
+        var scroll = $(window).scrollTop();
 
-    if (scroll >= 150) {
-        $('.show-on-scroll-wrapper').addClass("show");
-    } else {
-        $('.show-on-scroll-wrapper').removeClass("show");
-    }
- });
+        if (scroll >= 150) {
+            $('.show-on-scroll-wrapper').addClass("show");
+        } else {
+            $('.show-on-scroll-wrapper').removeClass("show");
+        }
+     });
 </script>
