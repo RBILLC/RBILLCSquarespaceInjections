@@ -1,26 +1,36 @@
-﻿<script>
-    function goToPageTop() {
-        var element_to_scroll_to = document.getElementById('page');
-        element_to_scroll_to.scrollIntoView({
-            behavior: 'smooth'
-        });
-        return false;
-    }
-</script>
-$("html, body").animate({ scrollTop: $([ELEMENT]).position().top }, 1000);
+﻿//
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
+    $(document).ready(function ()
+    {
+        //Prepend Page Nav
+        $("#site").prepend('<div class="show-on-scroll-wrapper" id="showOnScrollWrapper"><div id="mainNavWrapper" class="nav-wrapper show-on-scroll"><nav id="mainNavigation" data-content-field="navigation"><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown-services"><button class="dropbtn">Services</button></a><div class="dropdown-services-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="/jmp-service-details">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="aHref_VBA-Overview">VBA Overview</a></div><div class="dropdown-access"><button id="button_access-case-studies" class="dropbtn">Access Case Studies</button><div class="dropdown-access-content"><a href="#anchor-casestudies-1">Microsoft Access Database Migration Tool</a><a href="#anchor-casestudies-2">Microsoft Access FE SQL BE Credential Process</a><a href="#anchor-casestudies-3">Microsoft Access Database Documentation Tool</a></div></div><div class="dropdown-excel"><button id="button_vba-case-studies" class="dropbtn">Excel Case Studies</button><div class="dropdown-excel-content"><a href="#anchor-casestudies-4">Microsoft Excel VBA Secure PDF Generation</a><a href="#anchor-casestudies-5">Microsoft Excel VBA Regression Algorithm</a><a href="#anchor-casestudies-6">Microsoft Excel VBA SQL Role Creation Script</a></div></div></div></nav></div></div>');
 
-    $(document).ready(function () {
-        $("#site").prepend('<div class="show-on-scroll-wrapper" id="showOnScrollWrapper"><div id="mainNavWrapper" class="nav-wrapper show-on-scroll"><nav id="mainNavigation" data-content-field="navigation"><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown-services"><button class="dropbtn">Services</button></a><div class="dropdown-services-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="/jmp-service-details">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="whatever">VBA Overview</a></div><div class="dropdown-access"><a href="#anchor-casestudies-1"><button class="dropbtn">Access Case Studies</button></a><div class="dropdown-access-content"><a href="#anchor-casestudies-1">Microsoft Access Database Migration Tool</a><a href="#anchor-casestudies-2">Microsoft Access FE SQL BE Credential Process</a><a href="#anchor-casestudies-3">Microsoft Access Database Documentation Tool</a></div></div><div class="dropdown-excel"><button onclick="goToCasestudies()" class="dropbtn">Excel Case Studies</button><div class="dropdown-excel-content"><a href="#anchor-casestudies-4">Microsoft Excel VBA Secure PDF Generation</a><a href="#anchor-casestudies-5">Microsoft Excel VBA Regression Algorithm</a><a href="#anchor-casestudies-6">Microsoft Excel VBA SQL Role Creation Script</a></div></div></div></nav></div></div>');
-
-        $("#whatever").click(function () {
+        //Smooth scroll to top of page event
+        $("#aHref_VBA-Overview").click(function () {
             $('html, body').animate({
                 scrollTop: parseInt($("#page").offset().top)
             }, 500);
         });
+
+        //Smooth scroll to top of Access Case Studies
+        $("#button_access-case-studies").click(function () {
+            $('html, body').animate({
+                scrollTop: parseInt($("#anchor-casestudies-1").offset().top)
+            }, 500);
+        });
+
+        //Smooth scroll to top of Excel Case Studies
+        $("#button_vba-case-studies").click(function () {
+            $('html, body').animate({
+                scrollTop: parseInt($("#anchor-casestudies-4").offset().top)
+            }, 500);
+        });
     });
-    $(window).scroll(function () {
+
+    //Hide or show Nav based on page position
+    $(window).scroll(function ()
+    {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 150) {
