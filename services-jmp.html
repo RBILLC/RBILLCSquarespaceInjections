@@ -3,21 +3,24 @@
     $(document).ready(function ()
     {
         //Prepend Page Nav
-        $("#site").prepend('<div class="show-on-scroll-wrapper" id="showOnScrollWrapper"><div id="mainNavWrapper" class="nav-wrapper show-on-scroll"><nav id="mainNavigation" data-content-field="navigation" ><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown"><button class="dropbtn">Services</button></a><div class="dropdown-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="#" id="aHref_services-jmp">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="aHref_jmp-overview">JMP Overview</a></div><div class="index"><a href="#anchor-casestudies">JMP Case Studies</a></div><div class="index"><a href="#anchor-statreview">Statistical Concepts</a></div></div></nav></div></div>');
+        $("#site").prepend('<div class="show-on-scroll-wrapper" id="showOnScrollWrapper"><div id="mainNavWrapper" class="nav-wrapper show-on-scroll"><nav id="mainNavigation" data-content-field="navigation" ><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown"><button class="dropbtn">Services</button></a><div class="dropdown-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="#" id="aHref_services-jmp">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="aHref_jmp-overview">JMP Overview</a></div><div class="dropdown"><a href="#anchor-casestudies-1"><button class="dropbtn">JMP Case Studies</button></a><div class="dropdown-content"><a href="#anchor-casestudies">JMP SPC Report with Cp/Cpk using reference Control & Spec Limits</a></div></div><div class="dropdown"><a href="#anchor-statreview"><button class="dropbtn">Statistical Concepts</button></a><div class="dropdown-content"><a href="#anchor-statreview">The Population and Sample</a><a href="#anchor-CentralLimitTheorem">Central Limit Theorem</a><a href="#anchor-ConfidenceIntervals">Confidence Intervals</a><a href="#anchor-HypothesisTesting">Hypothesis Testing</a><a href="#anchor-TypesOfError">Types Of Error</a><a href="#anchor-SignificanceLevel">Significance Level</a><a href="#anchor-Power">Power</a></div></div></nav></div></div>');
+
+        //Replace Page Header Nav
+        $('.nav-wrapper.desktop-nav-wrapper').html('<nav id="mainNavigation" data-content-field="navigation" ><div class="index"><a href="/welcome/">Home</a></div><a href="/#services-section"><div class="dropdown"><button class="dropbtn">Services</button></a><div class="dropdown-content"><a href="/daq-labview-services">DAQ/LabVIEW Developmental Services</a><a href="/vba-automation">Microsoft Office 2016 VBA Automation Solutions</a><a href="#" id="aHref_services-jmp-desktop">JMP DOE & JSL Statistical Automation</a></div></div><div class="index"><a href="/welcome/#quote-request-section">Request Quote</a></div><div class="index"><a href="#" id="aHref_jmp-overview-desktop">JMP Overview</a></div><div class="dropdown"><a href="#anchor-casestudies-1"><button class="dropbtn">JMP Case Studies</button></a><div class="dropdown-content"><a href="#anchor-casestudies">JMP SPC Report with Cp/Cpk using reference Control & Spec Limits</a></div></div><div class="dropdown"><a href="#anchor-statreview"><button class="dropbtn">Statistical Concepts</button></a><div class="dropdown-content"><a href="#anchor-statreview">The Population and Sample</a><a href="#anchor-CentralLimitTheorem">Central Limit Theorem</a><a href="#anchor-ConfidenceIntervals">Confidence Intervals</a><a href="#anchor-HypothesisTesting">Hypothesis Testing</a><a href="#anchor-TypesOfError">Types Of Error</a><a href="#anchor-SignificanceLevel">Significance Level</a><a href="#anchor-Power">Power</a></div></div></nav>');
 
         //Smooth scroll to top of page event
-        $("#aHref_jmp-overview").click(function () {
+        $("#aHref_jmp-overview, #aHref_jmp-overview-desktop").click(function () {
             $('html, body').animate({
                 scrollTop: parseInt($("#page").offset().top)
             }, 400);
         });
 
         //Smooth scroll to top of page event
-        $("#aHref_services-jmp").click(function () {
+        $("#aHref_services-jmp, #aHref_services-jmp-desktop").click(function () {
             $('html, body').animate({
                 scrollTop: parseInt($("#page").offset().top)
             }, 400);
-        });
+        }); 
 
         //Align submenu to right if cut-off from window
         $(function () {
