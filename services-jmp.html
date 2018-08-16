@@ -17,7 +17,27 @@
             $('html, body').animate({
                 scrollTop: parseInt($("#page").offset().top)
             }, 400);
-        }); 
+        });
+
+        //Align submenu to right if cut-off from window
+        $(function () {
+            $(".dropdown").on('mouseenter mouseleave', function (e) {
+                if ($('.dropdown-content', this).length) {
+                    var dropdownElement = $('.dropdown-content:first', this);
+                    var elementOffset = dropdownElement.offset();
+                    var elementOffsetLeft = elementOffset.left;
+                    var elementWidth = dropdownElement.width();
+                    var pageHeigth = $(".show-on-scroll-wrapper").height();
+                    var pageWidth = $(".show-on-scroll-wrapper").width();
+                    //if left offset + width of dropdown is bigger than container width then it is cut-off
+                    if ((elementOffsetLeft + elementWidth) > pageWidth) {
+                        $(".dropdown-content").css({ "left": "auto", "right": "0", "margin-right": "-10px;" });
+                    } else {
+                        $(".dropdown-content").css({ "left": "0", "right": "auto", "margin-left": "-10px;" });
+                    }
+                }
+            });
+        });
     });
 
     $(window).scroll(function ()
